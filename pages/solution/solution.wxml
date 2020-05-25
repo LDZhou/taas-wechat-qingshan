@@ -1,0 +1,27 @@
+<!--pages/solution/solution.wxml-->
+<carousel
+  photos="{{photos}}"
+></carousel>
+<!-- <view class="container">
+  <view class="row" bindtap="toRetrospect" data-current-id="20">
+    <image src="/assets/solution/solution1.png" class='solution-bg' mode="aspectFill"></image>
+    <view class="wrap">
+      <text>{{$state.appInfo.name}} 手机壳</text>
+      <text></text>
+    </view>
+  </view>
+  <view class="row" bindtap="toRetrospect" data-current-id="13">
+    <image src="/assets/solution/solution2.png" class='solution-bg' mode="aspectFill"></image>
+    <view class="wrap">
+      <text>美团青山计划 X 喜茶 手机壳</text>
+      <text></text>
+    </view>
+  </view>
+  <view class="row" bindtap="toRetrospect" data-current-id="23">
+    <image src="/assets/solution/solution3.jpg" class='solution-bg' mode="aspectFill"></image>
+    <view class="wrap">
+      <text>奶粉罐回收再造 铅笔盒</text>
+      <text></text>
+    </view>
+  </view>
+</view> -->

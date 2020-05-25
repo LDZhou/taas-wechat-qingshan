@@ -1,0 +1,29 @@
+<!--components/carousel/carousel.wxml-->
+
+<view
+  class="carousel-container"
+  wx:if="{{photos && photos.length}}"
+  bindtap="previewHistoryImage">
+  <swiper
+    class='swiper-photos'
+    indicator-dots="{{false}}"
+    autoplay="{{true}}"
+    circular="{{true}}"
+    interval="{{5000}}"
+    duration="{{500}}"
+    previous-margin="40rpx"
+    next-margin="40rpx"
+    bindchange="posterSwiperChange"
+    current="{{0}}">
+    <block wx:for="{{photos}}" wx:key="id">
+      <swiper-item class="swiper-item">
+        <image class='photo' src="{{item.url}}" mode="aspectFill"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='indicator-contaner' wx:if="{{photos.length > 1}}">
+    <block wx:for="{{photos.length}}" wx:key="*this">
+      <view class="indicator-item {{currentIndex === index ? 'selected' : ''}}"/>
+    </block>
+  </view>
+</view>

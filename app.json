@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/my-page/my-page",
+    "pages/my-page/login/login",
+    "pages/solution/solution",
+    "pages/home/application/application",
+    "pages/solution/retrospect/retrospect"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取您的定位信息，以便进行个性化推送"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "青山计划",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "tabBar": {
+    "backgroundColor": "#010101",
+    "color": "#a6a9b6",
+    "selectedColor": "#484848",
+    "list": [
+      {
+        "iconPath": "assets/tab/home.png",
+        "selectedIconPath": "assets/tab/home-selected.png",
+        "pagePath": "pages/home/home",
+        "text": ""
+      },
+      {
+        "iconPath": "assets/tab/solution.png",
+        "selectedIconPath": "assets/tab/solution-selected.png",
+        "pagePath": "pages/solution/solution",
+        "text": ""
+      },
+      {
+        "iconPath": "assets/tab/me.png",
+        "selectedIconPath": "assets/tab/me-selected.png",
+        "pagePath": "pages/my-page/my-page",
+        "text": ""
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

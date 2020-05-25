@@ -1,0 +1,136 @@
+/* user info */
+.user-info-container{
+  text-align: center;
+  padding: 112rpx 44rpx 0 44rpx;
+  margin-bottom: 60rpx;
+}
+
+.head-img{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background: #dcdddd;
+}
+
+.user-name{
+  color: #dcdddd;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.no-login{
+  background: #dcdddd;
+  margin: 0 auto;
+}
+
+.login-btn{
+  box-sizing: border-box;
+  border: 2rpx solid;
+  width: 200rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  font-weight: 500;
+  border-color: #dcdddd;
+  margin: 0 auto;
+  margin-top: 30rpx;
+}
+
+/* brand info */
+
+.brand-info-container{
+  margin: 50rpx 30rpx 0 30rpx;
+  /* height: 280rpx; */
+  background: #19181d;
+  padding: 36rpx 36rpx 28rpx 36rpx;
+}
+
+.brand-info-title{
+  position: relative;
+  font-size: 40rpx;
+  color: #dcdddd;
+}
+
+/* .brand-info-title::after{
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 26rpx;
+  height: 4rpx;
+  background: #ea6da5;
+  left: -34rpx;
+  bottom: 10rpx;
+} */
+
+.brand-content-container{
+  margin-top: 72rpx;
+  display: flex;
+  align-items: center;
+}
+
+.content-wrap{
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-content-container > .content-wrap:nth-child(1){
+  width: 160rpx;
+  flex-shrink: 0;
+}
+
+.brand-content-container > .content-wrap:nth-child(2){
+  flex-grow: 1;
+}
+
+.brand-content-container > .content-wrap:nth-child(3){
+  width: 190rpx;
+  flex-shrink: 0;
+}
+
+.content-wrap > text:first-child{
+  color: #88839b;
+  font-size: 24rpx;
+}
+
+.content-wrap > text:last-child{
+  color: #dcdddd;
+  font-size: 68rpx;
+  font-weight: bold;
+}
+
+
+/* form */
+
+.row-container{
+  height: 100rpx;
+  padding: 0 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.row-title{
+  flex-shrink: 0;
+  width: 64rpx;
+  font-size: 30rpx;
+}
+
+.row-input{
+  margin-left: 40rpx;
+  flex-grow: 1;
+  font-size: 24rpx;
+  color: #88839b;
+}
+
+.picker{
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.right-icon{
+  width: 40rpx;
+  height: 40rpx;
+  flex-shrink: 0;
+}

@@ -1,0 +1,42 @@
+<!--pages/home/application/application.wxml-->
+<model
+  id="model"
+  bind:hideModel="hideModel"
+  confirmText="{{modelMessage.confirmText}}"
+  title="{{modelMessage.title}}"
+  content="{{modelMessage.content}}">
+</model>
+
+<view class="application-header">
+  <view>与{{$state.appInfo.name}}合作</view>
+  <text>{{$state.appInfo.name}}致力于长期与品牌合作
+  为品牌提供绿色环保解决方案</text>
+  <image src="/assets/home/application-header-bg.png" class='application-header-bg' mode="aspectFill"></image>
+</view>
+
+<view class="row-container" wx:for="{{rows}}" wx:key="key">
+  <text class="row-title">{{item.title}}</text>
+  <block wx:if="{{item.tag === 'input'}}">
+    <input
+      class="row-input"
+      placeholder-style="font-size: 24rpx;color:#88839b;"
+      placeholder="{{item.placeholder}}"
+      data-key="{{item.key}}"
+      type="{{item.type || 'text'}}"
+      bindinput="bindinput"
+      maxlength="{{item.maxlength || 140}}"
+      bindblur="bindInputBlur"></input>
+  </block>
+  <block wx:elif="{{item.tag === 'picker'}}">
+    <picker
+      class="row-input"
+      mode="selector"
+      range="{{item.options}}"
+      data-key="{{item.key}}"
+      bindchange="bindSelectorChange">
+      <view class="picker">{{form[item.key] || item.placeholder}}</view>
+    </picker>
+  </block>
+</view>
+<view class="submit-btn {{disabled ? 'disabled' : ''}}" bindtap="bindSubmit">提交</view>
+<view style="height: 100rpx;"></view>

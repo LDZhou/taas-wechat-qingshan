@@ -1,0 +1,21 @@
+<!--components/model/model.wxml-->
+<block wx:if="{{showModal}}">
+  <view class="modal-mask"></view>
+  <view class="modal-dialog">
+    <image
+      src="/assets/component/model/close.png"
+      class="close-icon"
+      wx:if="{{showClose}}"
+      bindtap="modelClose"></image>
+    <view class='m-title'>
+      {{title}}
+    </view>
+    <view class="m-info">
+      {{content}}
+      <slot></slot>
+    </view>
+    <view class="modal-footer-btn" bindtap="confirmModel">
+      {{confirmText}}
+    </view>
+  </view>
+</block>

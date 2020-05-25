@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "carousel": "/components/carousel/carousel"
+  },
+  "navigationBarTitleText": "解决方案"
+}

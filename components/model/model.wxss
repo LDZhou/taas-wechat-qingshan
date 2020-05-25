@@ -1,0 +1,64 @@
+/* components/model/model.wxss */
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.4;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+/* 弹框 */
+.modal-dialog{
+  font-size: 30rpx;
+  width:536rpx;
+  position: fixed;
+  top: 30%;
+  left:0;
+  right: 0;
+  margin:auto;
+  z-index: 1500;
+  background: #fff;
+  border-radius: 32rpx;
+  box-sizing: border-box;
+  padding: 54rpx 0 42rpx 0;
+}
+
+.close-icon{
+  position: absolute;
+  width: 28.96rpx;
+  height: 28.96rpx;
+  top: 25.34rpx;
+  right: 25.34rpx;
+}
+
+.m-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #c85122;
+  text-align: center;
+}
+
+.m-info{
+  font-size: 32rpx;
+  text-align: center;
+  color: #4a4a4a;
+  word-break: break-word;
+  margin: 36rpx 60rpx 0 60rpx;
+}
+
+.modal-footer-btn{
+  width: calc(100% - 286rpx);
+  margin: 0 auto;
+  height: 68rpx;
+  text-align: center;
+  line-height: 68rpx;
+  font-size: 28rpx;
+  margin-top: 50rpx;
+  border-radius: 42rpx;
+  color: #fff;
+  background: linear-gradient(to left, #fe6844, #f14b4c);
+}

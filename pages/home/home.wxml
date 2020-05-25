@@ -1,0 +1,91 @@
+<!--pages/home/home.wxml-->
+<!-- <image src="/assets/home/bg-1.png" class='bg-1' mode="aspectFill"></image>
+<view class="about-container">
+  <image class="logo-icon" src="/assets/my-page/footer-icon.png" mode="aspectFit"></image>
+  <image src="/assets/home/about-1.png" class='about-icon' mode="aspectFit"></image>
+  <view class="about-wrap">
+    <view class="title-1">ABOUT</view>
+    <view class="title-2 about-title">关于我们</view>
+    <text class="about-content">{{$state.appInfo.name}}是一家整合型循环经济技术创新机构。我们致力为消费品牌提供由数据赋能的再生资源追溯解决方案。 使每一件再生产品皆有源可溯，让每一件“垃圾”都能获得再续生命的能力。</text>
+  </view>
+  <image src="/assets/home/about-2.png" class='about-icon right-icon' mode="aspectFit"></image>
+</view>
+
+<view class="partner-btn top-btn" bindtap="bindApply">成为伙伴</view>
+
+<view class="problem-container">
+  <view class="title-1">CHALLENGES</view>
+  <view class="title-2 problem-title">痛点</view>
+  <text class="public-content">消费品牌与再生行业面对的共同挑战</text>
+  <view class="problem-icons-container">
+    <view class="problem-icon-wrap">
+      <image src="/assets/home/problem-icon-1.png" class='problem-icon' mode="aspectFit"></image>
+      <view>碎片化</view>
+    </view>
+    <view class="problem-icon-wrap">
+      <image src="/assets/home/problem-icon-2.png" class='problem-icon' mode="aspectFit"></image>
+      <view>透明度</view>
+    </view>
+    <view class="problem-icon-wrap">
+      <image src="/assets/home/problem-icon-3.png" class='problem-icon' mode="aspectFit"></image>
+      <view>真实性</view>
+    </view>
+  </view>
+</view>
+<image src="/assets/home/bg-2.png" class='bg-2' mode="aspectFill"></image>
+
+<view class="solution-container">
+  <view class="title-1 solution-title-1">SOLUTION</view>
+  <view class="title-2 solution-title-2">解决方案</view>
+  <text class="public-content">我们串联回收价值链信息，建立了一个基于循环经济理念的追溯信息平台: </text>
+</view>
+
+<image src="/assets/home/bg-3.png" class='bg-3' mode="aspectFit"></image>
+
+<view class="cooperative-brand">
+  <image src="/assets/home/cooperation-bg.png" class='cooperation-bg' mode="aspectFill"></image>
+  <view class="cooperation-title">希望合作品牌</view>
+  <view class="turn-bottom-icon-wrap">
+    <image src="/assets/home/turn-bottom.png" class='turn-bottom-icon' mode="aspectFit"></image>
+  </view>
+  <view class="cooperation-content-container">
+    <view class="cooperation-content-wrap">
+      <image src="/assets/home/cooperative-icon-1.png" class='cooperation-icon' mode="aspectFit"></image>
+      <text>建立完整的再生资源追溯信息流体系</text>
+    </view>
+    <view class="cooperation-content-wrap">
+      <image src="/assets/home/cooperative-icon-2.png" class='cooperation-icon' mode="aspectFit"></image>
+      <text>赋能再生资源产品，提升产品好感度和市场竞争力</text>
+    </view>
+    <view class="cooperation-content-wrap">
+      <image src="/assets/home/cooperative-icon-3.png" class='cooperation-icon' mode="aspectFit"></image>
+      <text>兑现企业社会责任承诺，提升品牌社会影响力</text>
+    </view>
+  </view>
+</view>
+
+<view class="client-container">
+  <view class="title-1">CLIENTS</view>
+  <view class="title-2 client-title">合作品牌</view>
+  <view class="client-icons-wrap">
+    <image src="/assets/home/brands/brand-1.png" class='client-icon' mode="aspectFit"></image>
+    <image src="/assets/home/brands/brand-2.png" class='client-icon' mode="aspectFit"></image>
+    <image src="/assets/home/brands/brand-3.png" class='client-icon' mode="aspectFit"></image>
+    <image src="/assets/home/brands/brand-4.png" class='client-icon' mode="aspectFit"></image>
+  </view>
+</view>
+
+<view class="partner-container">
+  <view class="partner-container-wrap">
+    <view class="title-1">PARTNERSHIP</view>
+    <view class="title-2 partner-title">战略合作</view>
+    <text class="public-content">我们已经和10家品牌成为战略合作伙伴
+  我们持续寻求有循环经济解决方案诉求的消费品牌或是循环经济领域的践行机构成为战略合作伙伴</text>
+    <view class="partner-btn" bindtap="bindApply">成为伙伴</view>
+  </view>
+  <view class="contact-us-container">
+    <text>联系我们
+    hello@trashaus.com</text>
+  </view>
+  <image src="/assets/home/bg-5.png" class='bg-5' mode="aspectFill"></image>
+</view> -->
