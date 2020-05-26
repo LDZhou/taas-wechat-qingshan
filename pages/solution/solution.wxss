@@ -37,3 +37,14 @@
   font-size: 72rpx;
   margin-left: 6rpx;
 }
+
+.submit-btn{
+  margin: 180rpx 30rpx 0 30rpx;
+  height: 80rpx;
+  background-color: #d8d8d8;
+  text-align: center;
+  line-height: 80rpx;
+  color: #2c2e3b;
+  font-size: 28rpx;
+  margin-top: 70rpx;
+}

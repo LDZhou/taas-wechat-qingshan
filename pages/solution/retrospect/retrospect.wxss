@@ -95,14 +95,6 @@
   position: relative;
 }
 
-/* .content-bg-1{
-  position: absolute;
-  bottom: 0;
-  right: 10rpx;
-  width: 256rpx;
-  height: 404rpx;
-} */
-
 .content-wrap{
   display: flex;
   justify-content: space-between;
@@ -160,13 +152,6 @@
 
 /*  */
 
-.turn-down-icon{
-  margin: 174rpx auto 10rpx auto;
-  display: block;
-  width: 62rpx;
-  height: 62rpx;
-}
-
 .output{
   font-size: 32rpx;
   color: #fff;
@@ -220,7 +205,7 @@
 .brand-row{
   padding: 36rpx 0;
   font-size: 28rpx;
-  color: #fff;
+  /* color: #fff; */
 }
 
 .brand-row:first-child{

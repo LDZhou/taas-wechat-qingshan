@@ -11,7 +11,24 @@ App.Page({
     currentIndex: 0,
     id: null,
     scan_code: null,
-    showMask: false
+    showMask: false,
+    photos: [
+      {
+        id: 20,
+        url: '/assets/solution/solution1.png'
+      },
+      {
+        id: 13,
+        url: '/assets/solution/solution2.png'
+      },
+      {
+        id: 23,
+        url: '/assets/solution/solution3.jpg'
+      }
+    ],
+    carouselProperties: {
+      
+    }
   },
 
   /**

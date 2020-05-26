@@ -20,8 +20,21 @@
 
 .swiper-item{
   box-sizing: border-box;
-  /* width: calc(100% - 60rpx); */
   padding: 0 10rpx;
+}
+
+.swiper-item-btn{
+  margin: 180rpx 30rpx 0 30rpx;
+  height: 80rpx;
+  background-color: #d8d8d8;
+  text-align: center;
+  line-height: 80rpx;
+  color: #2c2e3b;
+  font-size: 28rpx;
+  margin-top: 70rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 .indicator-contaner{

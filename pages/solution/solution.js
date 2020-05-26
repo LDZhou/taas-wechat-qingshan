@@ -8,15 +8,15 @@ App.Page({
   data: {
     photos: [
       {
-        id: 0,
+        id: 20,
         url: '/assets/solution/solution1.png'
       },
       {
-        id: 1,
+        id: 13,
         url: '/assets/solution/solution2.png'
       },
       {
-        id: 2,
+        id: 23,
         url: '/assets/solution/solution3.jpg'
       }
     ]
@@ -46,9 +46,11 @@ App.Page({
   onShareAppMessage: function () {
     return this.shareApp()
   },
-  
-  toRetrospect: function ({ currentTarget }) {
-    const { currentId } = currentTarget.dataset
+
+  swiperItemTap: function ({ detail }) {
+    const { photos } = this.data
+    const { currentIndex } = detail
+    const currentId = photos[currentIndex].id
     wx.navigateTo({
       url: './retrospect/retrospect?id=' + currentId,
     })

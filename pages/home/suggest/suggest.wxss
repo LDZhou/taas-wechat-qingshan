@@ -1,33 +1,5 @@
-/* pages/home/application/application.wxss */
+/* pages/home/suggest/suggest.wxss */
 
-.application-header{
-  height: 372‬rpx;
-  padding: 92rpx 94rpx 64rpx 94rpx;
-  margin-bottom: 80rpx;
-  position: relative;
-  text-align: center;
-}
-
-.application-header > view{
-  margin-bottom: 40rpx;
-  font-size: 40rpx;
-  color: #fff;
-  text-align: center;
-}
-
-.application-header > text{
-  font-size: 32rpx;
-  line-height: 60rpx;
-}
-
-.application-header-bg{
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
 
 .row-container{
   height: 100rpx;

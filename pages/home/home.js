@@ -30,9 +30,9 @@ App.Page({
     return this.shareApp()
   },
   
-  bindApply: function () {
+  bindSuggest: function () {
     wx.navigateTo({
-      url: './application/application'
+      url: './suggest/suggest'
     })
   }
 })

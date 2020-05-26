@@ -4,23 +4,30 @@
   class="carousel-container"
   wx:if="{{photos && photos.length}}"
   bindtap="previewHistoryImage">
+  <!-- interval="{{5000}}"
+  duration="{{500}}" -->
   <swiper
     class='swiper-photos'
     indicator-dots="{{false}}"
-    autoplay="{{true}}"
+    autoplay="{{false}}"
     circular="{{true}}"
-    interval="{{5000}}"
-    duration="{{500}}"
-    previous-margin="40rpx"
-    next-margin="40rpx"
+    previous-margin="{{properties['previous-margin'] || '40rpx'}}"
+    next-margin="{{properties['next-margin'] || '40rpx'}}"
+    style="{{properties['style'] || ''}}}}"
     bindchange="posterSwiperChange"
     current="{{0}}">
     <block wx:for="{{photos}}" wx:key="id">
       <swiper-item class="swiper-item">
         <image class='photo' src="{{item.url}}" mode="aspectFill"></image>
+        <view
+          class="swiper-item-btn"
+          wx:if="{{showSwiperBtn}}"
+          bindtap="swiperItemTap"
+        >立即查看</view>
       </swiper-item>
     </block>
   </swiper>
+  <slot></slot>
   <view class='indicator-contaner' wx:if="{{photos.length > 1}}">
     <block wx:for="{{photos.length}}" wx:key="*this">
       <view class="indicator-item {{currentIndex === index ? 'selected' : ''}}"/>

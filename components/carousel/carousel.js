@@ -13,6 +13,18 @@ App.Component({
       type: Array,
       value: []
     },
+    previewImage: {
+      type: Boolean,
+      value: false
+    },
+    showSwiperBtn: {
+      type: Boolean,
+      value: false
+    },
+    properties: {
+      type: Object,
+      value: {}
+    }
   },
 
   /**
@@ -33,13 +45,19 @@ App.Component({
     },
 
     previewHistoryImage: function (e) {
-      const { currentIndex } = this.data
-      const currentUrl = this.photos[currentIndex].url || ''
-      const self = this
-      wx.previewImage({
-        current: currentUrl,
-        urls: self.photos.map(item => item.url)
-      })
+      const { currentIndex, photos, previewImage } = this.data
+      if (previewImage) {
+        const currentUrl = photos[currentIndex].url || ''
+        wx.previewImage({
+          current: currentUrl,
+          urls: photos.map(item => item.url)
+        })
+      }
     },
+
+    swiperItemTap: function () {
+      const { currentIndex } = this.data
+      this.triggerEvent('swiperItemTap', { currentIndex })
+    }
   }
 })

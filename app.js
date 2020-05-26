@@ -20,12 +20,11 @@ let store = new Store({
     publicLogin,
     updateUserInfo,
     shareApp: function (params) {
-      const pageTitles = {
-        'my-page': '我的',
-        'shop': '商店',
-        'solution': '解决方案',
-        'application': '合作申请'
-      }
+      // const pageTitles = {
+      //   'my-page': '我的',
+      //   'solution': '解决方案',
+      //   'application': '合作申请'
+      // }
       const allPages = getCurrentPages()
       const lastPage = allPages[allPages.length - 1] || {}
       let lastRoute = '/' + (lastPage.route || 'pages/home/home')

@@ -9,45 +9,46 @@
 </view>
 
 <image class="show-img" wx:if="{{chainDetail.cover_photo}}" src="{{chainDetail.cover_photo.url}}" mode="widthFix"></image>
+    
+<carousel
+  photos="{{photos}}"
+  properties="{{carouselProperties}}"
+>
+</carousel>
 
 <view class="product-container" wx:for="{{chainDetail.products}}" wx:key="id">
-  <view class="product-wrap">
+  <view class="product-header-container">
     <image class="cover-photo" src="{{item.showBackgroundImg}}" mode="aspectFill" wx:if="{{item.showBackgroundImg}}"></image>
-    <view class="product-header-container">
-      <view class="header-info-wrap">
-        <view class="header-title">
-          <text>0{{index + 1}}</text>
-          <text>{{item.productTitle}}</text>
-        </view>
-        <view class="header-time">{{item.manufactured_at}}</view>
+    <view class="header-info-wrap">
+      <view class="header-title">
+        <text>0{{index + 1}}</text>
+        <text>{{item.productTitle}}</text>
       </view>
-    </view>
-    <view class="content-container">
-      <view class="content-wrap">
-        <view class="weight-container">
-          <image class="content-top-icon" src="/assets/my-page/weight.png" mode="aspectFit"></image>
-          <view>{{item.showNumberContent}}</view>
-        </view>
-        <view class="name-container">
-          <image class="content-top-icon" src="/assets/my-page/name.png" mode="aspectFit"></image>
-          <view>{{item.name}}</view>
-        </view>
-      </view>
-      <view class="content-row" style="margin-top:22rpx">
-        <image class="row-icon" src="/assets/my-page/city.png" mode="aspectFit"></image>
-        <text>{{item.brand_name}}</text>
-      </view>
-      <view class="content-row" style="margin-top:14rpx">
-        <image class="row-icon" src="/assets/my-page/address.png" mode="aspectFit"></image>
-        <text>{{item.sender_address}}</text>
-      </view>
-      <!-- <image class="content-bg-1" src="/assets/my-page/bg-1.png" mode="aspectFit"></image> -->
+      <view class="header-time">{{item.manufactured_at}}</view>
     </view>
   </view>
-  <image class="down-icon" src="/assets/my-page/down.png" mode="aspectFit" wx:if="{{chainDetail.products.length !== (index + 1)}}"></image>
+  <view class="content-container">
+    <view class="content-wrap">
+      <view class="weight-container">
+        <image class="content-top-icon" src="/assets/my-page/weight.png" mode="aspectFit"></image>
+        <view>{{item.showNumberContent}}</view>
+      </view>
+      <view class="name-container">
+        <image class="content-top-icon" src="/assets/my-page/name.png" mode="aspectFit"></image>
+        <view>{{item.name}}</view>
+      </view>
+    </view>
+    <view class="content-row" style="margin-top:22rpx">
+      <image class="row-icon" src="/assets/my-page/city.png" mode="aspectFit"></image>
+      <text>{{item.brand_name}}</text>
+    </view>
+    <view class="content-row" style="margin-top:14rpx">
+      <image class="row-icon" src="/assets/my-page/address.png" mode="aspectFit"></image>
+      <text>{{item.sender_address}}</text>
+    </view>
+  </view>
 </view>
 
-<image class="turn-down-icon" src="/assets/my-page/turn-down.png" mode="aspectFit"></image>
 <view class="output">产出</view>
 
 <view class="swiper-wrap" wx:if="{{lastProduct.photos && lastProduct.photos.length}}" bindtap="previewImage"  data-current-index="{{index}}">
