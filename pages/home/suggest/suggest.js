@@ -9,7 +9,7 @@ App.Page({
   data: {
     rows: [
       {
-        title: '您的公司',
+        title: '您的姓名',
         placeholder: '请输入...',
         key: 'name',
         tag: 'input'
@@ -23,7 +23,7 @@ App.Page({
       {
         title: '您想说的',
         placeholder: '请输入...',
-        key: 'content',
+        key: 'notes',
         tag: 'input'
       }
     ],
@@ -31,7 +31,7 @@ App.Page({
     form: {
       name: '',
       email: '',
-      content: ''
+      notes: ''
     },
   },
 
@@ -74,30 +74,35 @@ App.Page({
     let { form } = this.data
     const { key } = e.currentTarget.dataset
     form[key] = e.detail.value
-    const disabled = Object.values(form).some(i => Boolean(i) === false)
+    const disabled = !Object.values(form).every(i => Boolean(i))
     this.setData({ form, disabled })
   },
 
   bindSubmit: function () {
     const { disabled, form } = this.data
+    const { userInfo } = app.store.getState()
     if (disabled) {
       return
+    }
+    const params = {
+      url: `users/${userInfo.id}`,
+      method: 'PUT',
+      data: {
+        user: {
+          ...form
+        }
+      }
     }
     wx.showLoading({
       title: 'Loading...',
       mask: true
     })
-    const params = {
-      url: 'brands',
-      method: 'POST',
-      data: {
-        brand: form
-      }
-    }
     const self = this
     this.request(params).then(result => {
-      wx.hideLoading()
-      // this.setData({ disabled: true })
+      self.updateUserInfo(() => {
+        wx.hideLoading()
+        self.setData({ disabled: true })
+      })
     })
   }
 })
