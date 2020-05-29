@@ -1,8 +1,7 @@
 import { formatData } from './util.js'
 
 const baseUrl = 'https://api.trashaus.cn/api/'
-// const apiKey = '?api_key=test'
-const apiKey = 'test'
+const apiKey = 'eyJhbGciOiJIUzI1NiJ9.eyJhcHBfaWQiOjIsImV4cCI6NDc0NDMxNzY3M30.IOeVeqFY59RiSwt4q1Oaae36imewROD8PGifYFc2QFo'
 
 export function request(params) {
   const { userInfo } = getApp().store.$state

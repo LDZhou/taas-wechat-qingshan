@@ -8,15 +8,15 @@ App.Page({
   data: {
     photos: [
       {
-        id: 20,
+        id: 32,
         url: '/assets/solution/solution1.png'
       },
       {
-        id: 13,
+        id: 32,
         url: '/assets/solution/solution2.png'
       },
       {
-        id: 23,
+        id: 32,
         url: '/assets/solution/solution3.jpg'
       }
     ]
