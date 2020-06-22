@@ -1,10 +1,25 @@
 
+
+.home-bg{
+  width: 100%;
+}
+
+
 .contact-us-container{
-  margin: 120rpx auto 0 auto;
-  width: 448rpx;
-  height: 124rpx;
-  padding: 10rpx 66rpx;
+  position: relative;
+}
+
+.contact-us-btn{
+  position: absolute;
+  bottom: 65rpx;
+  left: 0;
+  width: calc(100% - 70rpx);
+  margin-left: 35rpx;
+  height: 106rpx;
+  line-height: 106rpx;
   text-align: center;
-  line-height: 52rpx;
-  background-color: #010101;
+  background-color: rgb(100,215,201);
+  color: #fff;
+  border-radius: 53rpx;
+  font-size: 36rpx;
 }

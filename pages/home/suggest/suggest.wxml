@@ -1,28 +1,44 @@
 <!--pages/home/suggest/suggest.wxml-->
 
-<view class="row-container" wx:for="{{rows}}" wx:key="key">
-  <text class="row-title">{{item.title}}</text>
-  <block wx:if="{{item.tag === 'input'}}">
-    <input
-      class="row-input"
-      placeholder-style="font-size: 24rpx;color:#88839b;"
-      placeholder="{{item.placeholder}}"
-      data-key="{{item.key}}"
-      type="{{item.type || 'text'}}"
-      bindinput="bindinput"
-      maxlength="{{item.maxlength || 140}}"
-      bindblur="bindInputBlur"></input>
-  </block>
-  <!-- <block wx:elif="{{item.tag === 'picker'}}">
-    <picker
-      class="row-input"
-      mode="selector"
-      range="{{item.options}}"
-      data-key="{{item.key}}"
-      bindchange="bindSelectorChange">
-      <view class="picker">{{form[item.key] || item.placeholder}}</view>
-    </picker>
-  </block> -->
+<model
+  id="model"
+  bind:confirmModel="confirmModel"
+  iconPath="{{modelMessage.iconPath}}"
+  confirmText="{{modelMessage.confirmText}}"
+  title="{{modelMessage.title}}"
+  content="{{modelMessage.content}}">
+</model>
+
+
+<view class='textarea-container'>
+  <view class="textarea-header">
+    <text>您想说的</text>
+    <text>{{form.notes.length}}/200</text>
+  </view>
+  <textarea
+    placeholder="请填写10字以上的问题描述"
+    placeholder-style="font-size: 28rpx;"
+    maxlength="{{200}}"
+    bindinput="bindinput"
+    class="area-input"
+    data-key="notes"
+  />
+</view>
+
+<view class="form-container">
+  <view class="row-container" wx:for="{{rows}}" wx:key="key">
+    <text class="row-title">{{item.title}}</text>
+    <block wx:if="{{item.tag === 'input'}}">
+      <input
+        class="row-input"
+        placeholder-style="color:rgb(153,153,153);"
+        placeholder="{{item.placeholder}}"
+        data-key="{{item.key}}"
+        type="{{item.type || 'text'}}"
+        bindinput="bindinput"
+        maxlength="{{item.maxlength || 140}}"></input>
+    </block>
+  </view>
 </view>
 <view class="submit-btn {{disabled ? 'disabled' : ''}}" bindtap="bindSubmit">提交</view>
 <view style="height: 100rpx;"></view>

@@ -7,6 +7,11 @@
       class="close-icon"
       wx:if="{{showClose}}"
       bindtap="modelClose"></image>
+    <image
+      src="{{iconPath}}"
+      class="tip-icon"
+      mode="heightFix"
+      wx:if="{{iconPath}}"></image>
     <view class='m-title'>
       {{title}}
     </view>

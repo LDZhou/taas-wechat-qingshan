@@ -9,74 +9,101 @@
 </view>
 
 <image class="show-img" wx:if="{{chainDetail.cover_photo}}" src="{{chainDetail.cover_photo.url}}" mode="widthFix"></image>
-    
-<carousel
-  photos="{{photos}}"
-  properties="{{carouselProperties}}"
->
-</carousel>
 
-<view class="product-container" wx:for="{{chainDetail.products}}" wx:key="id">
-  <view class="product-header-container">
-    <image class="cover-photo" src="{{item.showBackgroundImg}}" mode="aspectFill" wx:if="{{item.showBackgroundImg}}"></image>
-    <view class="header-info-wrap">
-      <view class="header-title">
-        <text>0{{index + 1}}</text>
-        <text>{{item.productTitle}}</text>
-      </view>
-      <view class="header-time">{{item.manufactured_at}}</view>
-    </view>
-  </view>
-  <view class="content-container">
-    <view class="content-wrap">
-      <view class="weight-container">
-        <image class="content-top-icon" src="/assets/my-page/weight.png" mode="aspectFit"></image>
-        <view>{{item.showNumberContent}}</view>
-      </view>
-      <view class="name-container">
-        <image class="content-top-icon" src="/assets/my-page/name.png" mode="aspectFit"></image>
-        <view>{{item.name}}</view>
-      </view>
-    </view>
-    <view class="content-row" style="margin-top:22rpx">
-      <image class="row-icon" src="/assets/my-page/city.png" mode="aspectFit"></image>
-      <text>{{item.brand_name}}</text>
-    </view>
-    <view class="content-row" style="margin-top:14rpx">
-      <image class="row-icon" src="/assets/my-page/address.png" mode="aspectFit"></image>
-      <text>{{item.sender_address}}</text>
-    </view>
-  </view>
-</view>
+<image class="environment-icon" src="/assets/solution/retrospect/environment.png" mode="aspectFit"></image>
 
-<view class="output">产出</view>
-
-<view class="swiper-wrap" wx:if="{{lastProduct.photos && lastProduct.photos.length}}" bindtap="previewImage"  data-current-index="{{index}}">
-  <swiper class='swiper-photo' indicator-dots="{{false}}" autoplay="{{true}}" circular="{{true}}" interval="{{4000}}" duration="{{500}}" bindchange="posterSwiperChange" current="{{0}}" data-current-index="{{index}}">
-    <block wx:for="{{lastProduct.photos}}" wx:for-item="i" wx:key="id">
-      <swiper-item>
-        <image class='photo' src="{{i.url}}" mode="aspectFill"></image>
+<view
+  class="carousel-container"
+  wx:if="{{carouselPhotos && carouselPhotos.length}}">
+  <!-- interval="{{5000}}"
+  duration="{{500}}" -->
+  <swiper
+    class='swiper-photos'
+    indicator-dots="{{false}}"
+    autoplay="{{false}}"
+    circular="{{true}}"
+    previous-margin="80rpx"
+    next-margin="80rpx"
+    bindchange="posterSwiperChange"
+    current="{{0}}">
+    <block wx:for="{{carouselPhotos}}" wx:key="id">
+      <swiper-item class="swiper-item">
+        <view class="swiper-item-wrap">
+          <view class="swiper-header-content">
+            <text>{{item.des}}</text>
+            <text>{{item.headerNum}}</text>
+            <text>{{item.unit}}</text>
+          </view>
+          <image class='photo' src="{{item.url}}" mode="aspectFill" style="{{imageStyle}}"></image>
+          <view class="swiper-footer">
+            <text>{{item.footer_1}}</text>
+            <text>{{item.footerNum}}</text>
+            <text>{{item.footer_2}}</text>
+          </view>
+        </view>
       </swiper-item>
     </block>
   </swiper>
-  <view class='indicator-contaner' wx:if="{{lastProduct.photos.length > 1}}">
-    <block wx:for="{{lastProduct.photos.length}}" wx:for-item="ind" wx:key="*this">
-      <view class='{{currentIndex === ind ? "indicator-item selected" : "indicator-item"}}'/>
-    </block>
+</view>
+
+<view class='indicator-contaner' wx:if="{{carouselPhotos.length > 1}}" style="{{indicatorStyle}}">
+  <block wx:for="{{carouselPhotos.length}}" wx:key="*this">
+    <view class="indicator-item {{indicatorIndex === index ? 'selected' : ''}}"/>
+  </block>
+</view>
+
+<image class="environment-icon" src="/assets/solution/retrospect/process.png" mode="aspectFit"></image>
+
+<view class="products-wrap">
+  <view class="product-container {{scrollIndex === index ? 'product-active' : ''}}" wx:for="{{chainDetail.products}}" wx:key="id">
+    <view class="product-header-container">
+      <image class="cover-photo" src="{{item.showBackgroundImg}}" mode="aspectFill" wx:if="{{item.showBackgroundImg}}"></image>
+      <view class="header-time">{{item.manufactured_at}}</view>
+      <image class="time-bg" src="/assets/solution/retrospect/time-bg.png"></image>
+    </view>
+    <view class="content-container">
+      <text>{{item.productTitle}}</text>
+      <view class="content-wrap">
+        <text class="content-des">{{item.showNumberContent}}{{item.name}}</text>
+        <view class="content-row">
+          <image class="row-icon" src="/assets/solution/retrospect/city.png" mode="aspectFit"></image>
+          <text>{{item.brand_name}}</text>
+        </view>
+        <view class="content-row">
+          <image class="row-icon" src="/assets/solution/retrospect/address.png" mode="aspectFit"></image>
+          <text>{{item.sender_address}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="output">再生档案</view>
+  <view class="product-container {{chainDetail.products && scrollIndex === chainDetail.products.length ? 'product-active' : ''}}">
+    <view class="product-header-container">
+      <image class="cover-photo" src="{{lastProduct.showBackgroundImg}}" mode="aspectFill" wx:if="{{lastProduct.showBackgroundImg}}"></image>
+      <view class="header-time">{{lastProduct.manufactured_at}}</view>
+      <image class="time-bg" src="/assets/solution/retrospect/time-bg.png"></image>
+    </view>
+    <view class="record-container">
+      <view class="record-title">TA是谁</view>
+      <view class="record-des">{{lastProduct.name}}</view>
+      <view class="record-info">
+        <view class="record-row-wrap">
+          <view class="record-title">再生重量</view>
+          <view class="record-des">{{lastProduct.weight}}kg</view>
+        </view>
+        <view class="record-row-wrap">
+          <view class="record-title">再生数量</view>
+          <view class="record-des">{{lastProduct.quantity}}个</view>
+        </view>
+        <view class="record-row-wrap">
+          <view class="record-title">再生时间</view>
+          <view class="record-des">{{lastProduct.manufactured_at}}</view>
+        </view>
+      </view>
+    </view>
   </view>
 </view>
 
-<view class="brand-container">
-  <view class="brand-row dashed">品牌介绍</view>
-  <view class="brand-row dashed">产品名：{{lastProduct.name}}</view>
-  <view class="brand-row dashed">重量：{{lastProduct.weight}}kg</view>
-  <view class="brand-row">限量：{{lastProduct.quantity}}个</view>
-  <view class="brand-row">时间：{{lastProduct.manufactured_at}}</view>
-</view>
-
-<view class="share-btn" bindtap="bindShowMask">生成图片分享到朋友圈</view>
-
 <view class="footer-container">
-  <text>Powered By</text>
-  <image class="footer-icon" src="/assets/my-page/footer-icon.png" mode="aspectFit"></image>
+  <view class="share-btn" bindtap="bindShowMask">生成图片分享到朋友圈</view>
 </view>

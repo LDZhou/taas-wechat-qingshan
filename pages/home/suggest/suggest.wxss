@@ -1,24 +1,65 @@
 /* pages/home/suggest/suggest.wxss */
 
 
+.textarea-container{
+  width: calc(100% - 60rpx);
+  height: 456rpx;
+  position: relative;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  padding: 0 30rpx;
+  background: #fff;
+}
+
+.textarea-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 110rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+.area-input{
+  width: 100%;
+  height: calc(100% - 110rpx);
+  font-size: 28rpx;
+}
+
+
+.form-container{
+  width: calc(100% - 60rpx);
+  margin-left: 30rpx;
+  background: #fff;
+  margin-top: 20rpx;
+}
+
 .row-container{
   height: 100rpx;
   padding: 0 30rpx;
   display: flex;
   align-items: center;
+  width: calc(100% - 60rpx);
+  margin-left: 30rpx;
 }
+
+
+.form-container > .row-container:last-child{
+  border-top: 2rpx solid rgba(153,153,153, 0.2);
+}
+
 
 .row-title{
   flex-shrink: 0;
-  width: 160rpx;
-  font-size: 30rpx;
+  min-width: 116rpx;
+  font-size: 28rpx;
 }
 
 .row-input{
-  margin-left: 30rpx;
+  margin-left: 20rpx;
   flex-grow: 1;
-  font-size: 24rpx;
-  color: #88839b;
+  font-size: 28rpx;
 }
 
 .picker{
@@ -28,17 +69,16 @@
 
 
 .submit-btn{
-  margin: 180rpx 30rpx 0 30rpx;
-  height: 80rpx;
-  background-color: #d8d8d8;
+  margin: 240rpx 40rpx 0 40rpx;
+  height: 90rpx;
+  background-color: rgb(100,215,201);
   text-align: center;
-  line-height: 80rpx;
-  color: #2c2e3b;
-  font-size: 28rpx;
-  margin-top: 70rpx;
+  line-height: 90rpx;
+  color: #fff;
+  font-size: 36rpx;
+  border-radius: 53rpx;
 }
 
 .disabled{
-  opacity: 0.5;
-  background-color: #dcdddd;
+  background-color: rgb(222,222,222);
 }

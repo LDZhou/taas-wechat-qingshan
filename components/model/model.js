@@ -20,6 +20,10 @@ App.Component({
       type: String,
       value: ''
     },
+    iconPath: {
+      type: String,
+      value: ''
+    },
     showClose: {
       type: Boolean,
       value: false

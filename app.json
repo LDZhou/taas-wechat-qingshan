@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/home/suggest/suggest",
     "pages/my-page/my-page",
     "pages/my-page/login/login",
     "pages/solution/solution",
-    "pages/solution/retrospect/retrospect",
-    "pages/home/suggest/suggest"
+    "pages/solution/retrospect/retrospect"
   ],
   "permission": {
     "scope.userLocation": {

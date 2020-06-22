@@ -1,5 +1,10 @@
 // pages/solution/retrospect/retrospect.js
+import { throttle } from '../../../utils/util.js'
+
 const app = getApp()
+const { windowHeight } = wx.getSystemInfoSync()
+const offset = 200
+
 App.Page({
 
   /**
@@ -9,26 +14,55 @@ App.Page({
     lastProduct: {},
     chainDetail: {},
     currentIndex: 0,
+    scrollIndex: 0,
+    indicatorIndex: 0,
     id: null,
     scan_code: null,
     showMask: false,
-    photos: [
+    carouselPhotos: [
       {
-        id: 20,
-        url: '/assets/solution/solution1.png'
+        id: 0,
+        url: '/assets/solution/retrospect/bathtub.png',
+        des: '减少\n二氧化碳排放',
+        headerNum: 0,
+        unit: 'kg',
+        footer_1: '相当于一棵树',
+        footer_2: '年吸收的二氧化碳量',
+        footerNum: 0,
+        key: 'reduce_co2',
+        compute: function (value) {
+          return Math.ceil(value * 0.056)
+        }
       },
       {
-        id: 13,
-        url: '/assets/solution/solution2.png'
+        id: 1,
+        url: '/assets/solution/retrospect/power.png',
+        des: '减少\能源消耗',
+        headerNum: 0,
+        unit: 'kwh',
+        footer_1: '相当于一家三口',
+        footer_2: '个月的正常用电量',
+        footerNum: 0,
+        key: 'reduce_power',
+        compute: function (value) {
+          return Math.ceil(value * 0.0054)
+        }
       },
       {
-        id: 23,
-        url: '/assets/solution/solution3.jpg'
+        id: 2,
+        url: '/assets/solution/retrospect/tree.png',
+        des: '减少\填埋体积',
+        headerNum: 0,
+        unit: 'm³',
+        footer_1: '相当于',
+        footer_2: '个浴缸的体积',
+        footerNum: 0,
+        key: 'reduce_volume',
+        compute: function (value) {
+          return Math.ceil(value * 1.26)
+        }
       }
-    ],
-    carouselProperties: {
-      
-    }
+    ]
   },
 
   /**
@@ -97,6 +131,34 @@ App.Page({
 
   },
 
+  onPageScroll: throttle(function (e) {
+    // console.log('e', e)
+    this.computedProduts()
+  }, 200),
+
+  // onPageScroll: function (e) {
+  //   console.log('e', e)
+  //   this.computedProduts()
+  // },
+
+  computedProduts: function () {
+    const self = this
+    const queryAll = wx.createSelectorQuery()
+    queryAll.selectAll('.product-container').boundingClientRect()
+    queryAll.selectViewport().scrollOffset()
+    queryAll.exec(function ([res]) {
+      console.log(res)
+      for (let index = 0; index < res.length; index++) {
+        const { height, top } = res[index]
+        if (windowHeight - offset > top && top > offset) {
+          console.log('=>', index)
+          self.setData({ scrollIndex: index })
+          break
+        }
+      }
+    })
+  },
+
   /**
    * 用户点击右上角分享
    */
@@ -107,6 +169,11 @@ App.Page({
     }
     scan_code && (params.scan_code = scan_code)
     return this.shareApp(params)
+  },
+
+  posterSwiperChange: function ({ currentTarget, detail }) {
+    const { current } = detail
+    this.setData({ indicatorIndex: current })
   },
 
   getChainDetail: function (id) {
@@ -120,7 +187,7 @@ App.Page({
   },
 
   detailInit: function (id, position) {
-    const { scan_code } = this.data
+    const { scan_code, carouselPhotos } = this.data
     let apiParams = {}
     if (position) {
       apiParams.latitude = position.latitude
@@ -143,6 +210,11 @@ App.Page({
     const self = this
     // const productNames = ['废料回收', '破碎清洗', '再生造粒', '产品制造']
     this.request(params).then(result => {
+      const newCarouselPhotos = carouselPhotos.map(item => {
+        item.headerNum = result.data[item.key] || 0
+        item.footerNum = item.compute(item.headerNum)
+        return item
+      })
       result.data.products = result.data.products || []
       result.data.products = result.data.products.map((item, index) => {
         item.name = item.name || ''
@@ -170,7 +242,7 @@ App.Page({
       lastProduct.photos = lastProduct.photos || []
       result.data.products.splice(result.data.products.length - 1, 1)
       wx.hideLoading()
-      self.setData({ chainDetail: result.data, lastProduct })
+      self.setData({ chainDetail: result.data, lastProduct, carouselPhotos: newCarouselPhotos })
     })
   },
 
@@ -189,15 +261,6 @@ App.Page({
           })
         }
       })
-    })
-  },
-
-  previewImage: function (e) {
-    const { currentIndex } = e.currentTarget.dataset
-    const { photos } = this.data
-    wx.previewImage({
-      current: photos[currentIndex] ? photos[currentIndex].url : '',
-      urls: photos.map(item => item.url)
     })
   },
 

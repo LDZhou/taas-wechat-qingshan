@@ -20,12 +20,12 @@ App.Page({
         key: 'email',
         tag: 'input'
       },
-      {
-        title: '您想说的',
-        placeholder: '请输入...',
-        key: 'notes',
-        tag: 'input'
-      }
+      // {
+      //   title: '您想说的',
+      //   placeholder: '请输入...',
+      //   key: 'notes',
+      //   tag: 'input'
+      // }
     ],
     disabled: true,
     form: {
@@ -33,13 +33,20 @@ App.Page({
       email: '',
       notes: ''
     },
+    modelMessage: {
+      title: '提交成功！',
+      content: '我们近期会联系您，请保持手机通畅～',
+      confirmText: '确定',
+      iconPath: '/assets/component/success.png'
+    },
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.model = this.selectComponent('#model')
+    // this.model.show()
   },
 
   /**
@@ -79,6 +86,18 @@ App.Page({
   },
 
   bindSubmit: function () {
+    app.globalData.userInfoPromise
+      .then(() => {
+        this.requestSuggest()
+      })
+      .catch(() => {
+        wx.navigateTo({
+          url: '/pages/my-page/login/login',
+        })
+      })
+  },
+
+  requestSuggest () {
     const { disabled, form } = this.data
     const { userInfo } = app.store.getState()
     if (disabled) {
@@ -98,11 +117,17 @@ App.Page({
       mask: true
     })
     const self = this
-    this.request(params).then(result => {
+    this.request(params)
+    .then(result => {
+      self.model.show()
       self.updateUserInfo(() => {
         wx.hideLoading()
         self.setData({ disabled: true })
       })
     })
-  }
+  },
+
+  confirmModel: function () {
+    wx.navigateBack()
+  },
 })

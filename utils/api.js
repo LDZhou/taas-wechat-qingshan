@@ -3,6 +3,27 @@ import { formatData } from './util.js'
 const baseUrl = 'https://api.trashaus.cn/api/'
 const apiKey = 'eyJhbGciOiJIUzI1NiJ9.eyJhcHBfaWQiOjIsImV4cCI6NDc0NDMxNzY3M30.IOeVeqFY59RiSwt4q1Oaae36imewROD8PGifYFc2QFo'
 
+
+function exceptionHandling({ err, reject }) {
+  let errTitle = ''
+  if (Object.prototype.toString.call(err) === '[object Error]') {
+    errTitle = err.toString()
+  } else {
+    try {
+      errTitle = err.em || '服务器异常'
+    } catch (error) {
+      errTitle = '服务器异常'
+    }
+  }
+  wx.hideLoading()
+  wx.showToast({
+    title: errTitle,
+    icon: 'none'
+  })
+  reject(err)
+}
+
+
 export function request(params) {
   const { userInfo } = getApp().store.$state
   return new Promise(function (resolve, reject) {
@@ -15,13 +36,16 @@ export function request(params) {
         'Api-Key': apiKey
       },
       timeout: 30000,
-      success (res) {
-        console.log('result', res.data)
-        res.data && resolve(res.data)
+      success(res) {
+        console.log('result', res)
+        if (res.statusCode === 200) {
+          resolve(res.data)
+        } else {
+          exceptionHandling({ err: res.data, reject })
+        }
       },
       fail(err) {
-        wx.hideLoading()
-        reject(err)
+        exceptionHandling({ err, reject })
       }
     }
     if (userInfo && userInfo.authentication_token) {
@@ -48,11 +72,14 @@ export function uploadFile(params) {
       timeout: 30000,
       success(res) {
         console.log('result', res.data)
-        res.data && resolve(res.data)
+        if (res.statusCode === 200) {
+          resolve(res.data)
+        } else {
+          exceptionHandling({ err: res.data, reject })
+        }
       },
       fail(err) {
-        wx.hideLoading()
-        reject(err)
+        exceptionHandling({ err, reject })
       }
     }
     if (userInfo && userInfo.authentication_token) {

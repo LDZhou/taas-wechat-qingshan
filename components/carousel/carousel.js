@@ -3,7 +3,8 @@
 const app = getApp()
 App.Component({
   options: {
-    multipleSlots: true
+    multipleSlots: true,
+    addGlobalClass: true
   },
   /**
    * 组件的属性列表
@@ -24,7 +25,19 @@ App.Component({
     properties: {
       type: Object,
       value: {}
-    }
+    },
+    containerStyle: {
+      type: String,
+      value: ''
+    },
+    indicatorStyle: {
+      type: String,
+      value: ''
+    },
+    imageStyle: {
+      type: String,
+      value: ''
+    },
   },
 
   /**

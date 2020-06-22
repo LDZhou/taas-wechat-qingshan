@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   background: #000;
-  opacity: 0.4;
+  opacity: 0.7;
   overflow: hidden;
   z-index: 1000;
   color: #fff;
@@ -14,17 +14,16 @@
 /* 弹框 */
 .modal-dialog{
   font-size: 30rpx;
-  width:536rpx;
+  width:calc(100% - 90rpx);
   position: fixed;
-  top: 30%;
-  left:0;
-  right: 0;
+  top: 16%;
+  left:45rpx;
   margin:auto;
   z-index: 1500;
   background: #fff;
-  border-radius: 32rpx;
   box-sizing: border-box;
-  padding: 54rpx 0 42rpx 0;
+  border-radius: 6rpx;
+  padding: 50rpx;
 }
 
 .close-icon{
@@ -35,30 +34,37 @@
   right: 25.34rpx;
 }
 
+.tip-icon{
+  height: 230rpx;
+  margin: 150rpx auto 0 auto;
+  display: block;
+}
+
 .m-title {
-  font-size: 32rpx;
+  margin-top: 100rpx;
+  font-size: 36rpx;
   font-weight: 600;
-  color: #c85122;
+  color: rgb(51,51,51);
   text-align: center;
 }
 
 .m-info{
-  font-size: 32rpx;
+  font-size: 24rpx;
   text-align: center;
-  color: #4a4a4a;
+  color: rgb(153,153,153);
   word-break: break-word;
-  margin: 36rpx 60rpx 0 60rpx;
+  margin-top: 15rpx;
 }
 
 .modal-footer-btn{
-  width: calc(100% - 286rpx);
+  width: 100%;
   margin: 0 auto;
-  height: 68rpx;
+  height: 90rpx;
   text-align: center;
-  line-height: 68rpx;
-  font-size: 28rpx;
-  margin-top: 50rpx;
-  border-radius: 42rpx;
+  line-height: 90rpx;
+  font-size: 36rpx;
+  margin-top: 56rpx;
+  border-radius: 53rpx;
   color: #fff;
-  background: linear-gradient(to left, #fe6844, #f14b4c);
+  background: rgb(100,215,201);
 }

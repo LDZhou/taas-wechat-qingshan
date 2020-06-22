@@ -3,6 +3,7 @@
 <view
   class="carousel-container"
   wx:if="{{photos && photos.length}}"
+  style="{{containerStyle}}"
   bindtap="previewHistoryImage">
   <!-- interval="{{5000}}"
   duration="{{500}}" -->
@@ -11,14 +12,15 @@
     indicator-dots="{{false}}"
     autoplay="{{false}}"
     circular="{{true}}"
-    previous-margin="{{properties['previous-margin'] || '40rpx'}}"
-    next-margin="{{properties['next-margin'] || '40rpx'}}"
-    style="{{properties['style'] || ''}}}}"
+    previous-margin="{{properties['previous-margin'] || '51rpx'}}"
+    next-margin="{{properties['next-margin'] || '51rpx'}}"
     bindchange="posterSwiperChange"
     current="{{0}}">
     <block wx:for="{{photos}}" wx:key="id">
-      <swiper-item class="swiper-item">
-        <image class='photo' src="{{item.url}}" mode="aspectFill"></image>
+      <swiper-item
+        class="swiper-item {{currentIndex !== index ? 'swiper-hide-item' : ''}}"
+        style="{{properties['style'] || ''}}">
+        <image class='photo' src="{{item.url}}" mode="aspectFill" style="{{imageStyle}}"></image>
         <view
           class="swiper-item-btn"
           wx:if="{{showSwiperBtn}}"
@@ -28,9 +30,15 @@
     </block>
   </swiper>
   <slot></slot>
-  <view class='indicator-contaner' wx:if="{{photos.length > 1}}">
+  <!-- <view class='indicator-contaner' wx:if="{{photos.length > 1}}">
     <block wx:for="{{photos.length}}" wx:key="*this">
       <view class="indicator-item {{currentIndex === index ? 'selected' : ''}}"/>
     </block>
-  </view>
+  </view> -->
+</view>
+
+<view class='indicator-contaner' wx:if="{{photos.length > 1}}" style="{{indicatorStyle}}">
+  <block wx:for="{{photos.length}}" wx:key="*this">
+    <view class="indicator-item {{currentIndex === index ? 'selected' : ''}}"/>
+  </block>
 </view>

@@ -6,3 +6,4 @@
   bind:swiperItemTap="swiperItemTap"
 >
 </carousel>
+<view style="height: 100rpx;"></view>

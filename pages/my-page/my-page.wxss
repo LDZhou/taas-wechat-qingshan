@@ -1,21 +1,29 @@
 /* user info */
 .user-info-container{
-  text-align: center;
-  padding: 112rpx 44rpx 0 44rpx;
-  margin-bottom: 60rpx;
+  padding: 77rpx 35rpx 0 35rpx;
+  margin-top: 138rpx;
+  background: #fff;
+  border-radius: 6rpx;
+  position: relative;
+  width: calc(100% - 80rpx);
+  margin-left: 40rpx;
 }
 
 .head-img{
-  width: 120rpx;
-  height: 120rpx;
+  width: 124rpx;
+  height: 124rpx;
   border-radius: 50%;
   background: #dcdddd;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -62rpx;
+  margin-top: -62rpx;
 }
 
 .user-name{
-  color: #dcdddd;
-  font-size: 30rpx;
-  margin-top: 20rpx;
+  font-size: 38rpx;
+  text-align: center;
 }
 
 .no-login{
@@ -41,9 +49,8 @@
 
 /* brand info */
 
-.brand-info-container{
+/* .brand-info-container{
   margin: 50rpx 30rpx 0 30rpx;
-  /* height: 280rpx; */
   background: #19181d;
   padding: 36rpx 36rpx 28rpx 36rpx;
 }
@@ -52,7 +59,7 @@
   position: relative;
   font-size: 40rpx;
   color: #dcdddd;
-}
+} */
 
 /* .brand-info-title::after{
   content: '';
@@ -65,7 +72,7 @@
   bottom: 10rpx;
 } */
 
-.brand-content-container{
+/* .brand-content-container{
   margin-top: 72rpx;
   display: flex;
   align-items: center;
@@ -99,29 +106,32 @@
   color: #dcdddd;
   font-size: 68rpx;
   font-weight: bold;
-}
+} */
 
 
 /* form */
 
 .row-container{
-  height: 100rpx;
-  padding: 0 30rpx;
+  height: 120rpx;
   display: flex;
   align-items: center;
+}
+
+.row-container ~ .row-container{
+  border-top: 2rpx solid rgb(239,239,244);
 }
 
 .row-title{
   flex-shrink: 0;
   width: 64rpx;
-  font-size: 30rpx;
+  font-size: 28rpx;
 }
 
 .row-input{
-  margin-left: 40rpx;
+  margin-left: 20rpx;
   flex-grow: 1;
-  font-size: 24rpx;
-  color: #88839b;
+  font-size: 28rpx;
+  color: rgb(153,153,153);
 }
 
 .picker{
@@ -130,7 +140,13 @@
 }
 
 .right-icon{
-  width: 40rpx;
-  height: 40rpx;
+  width: 14rpx;
+  height: 24rpx;
   flex-shrink: 0;
+}
+
+.mine-bg{
+  width: calc(100% - 80rpx);
+  margin-top: 226rpx;
+  margin-left: 40rpx;
 }
