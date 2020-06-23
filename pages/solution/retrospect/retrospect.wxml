@@ -58,8 +58,10 @@
   <view class="product-container {{scrollIndex === index ? 'product-active' : ''}}" wx:for="{{chainDetail.products}}" wx:key="id">
     <view class="product-header-container">
       <image class="cover-photo" src="{{item.showBackgroundImg}}" mode="aspectFill" wx:if="{{item.showBackgroundImg}}"></image>
-      <view class="header-time">{{item.manufactured_at}}</view>
-      <image class="time-bg" src="/assets/solution/retrospect/time-bg.png"></image>
+      <view class="header-date-wrap" wx:if="{{scrollIndex === index}}">
+        <view class="header-time">{{item.manufactured_at}}</view>
+        <image class="time-bg" src="/assets/solution/retrospect/time-bg.png"></image>
+      </view>
     </view>
     <view class="content-container">
       <text>{{item.productTitle}}</text>
@@ -80,8 +82,10 @@
   <view class="product-container {{chainDetail.products && scrollIndex === chainDetail.products.length ? 'product-active' : ''}}">
     <view class="product-header-container">
       <image class="cover-photo" src="{{lastProduct.showBackgroundImg}}" mode="aspectFill" wx:if="{{lastProduct.showBackgroundImg}}"></image>
-      <view class="header-time">{{lastProduct.manufactured_at}}</view>
-      <image class="time-bg" src="/assets/solution/retrospect/time-bg.png"></image>
+      <view class="header-date-wrap" wx:if="{{chainDetail.products && scrollIndex === chainDetail.products.length}}">
+        <view class="header-time">{{lastProduct.manufactured_at}}</view>
+        <image class="time-bg" src="/assets/solution/retrospect/time-bg.png"></image>
+      </view>
     </view>
     <view class="record-container">
       <view class="record-title">TA是谁</view>

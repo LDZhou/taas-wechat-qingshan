@@ -21,6 +21,7 @@
         class="swiper-item {{currentIndex !== index ? 'swiper-hide-item' : ''}}"
         style="{{properties['style'] || ''}}">
         <image class='photo' src="{{item.url}}" mode="aspectFill" style="{{imageStyle}}"></image>
+        <text class="swiper-title">{{item.name}}</text>
         <view
           class="swiper-item-btn"
           wx:if="{{showSwiperBtn}}"

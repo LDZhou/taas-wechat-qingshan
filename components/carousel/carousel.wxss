@@ -30,6 +30,15 @@
   margin-top: 24rpx;
 }
 
+.swiper-title{
+  position: absolute;
+  bottom: 162rpx;
+  left: 70rpx;
+  right: 70rpx;
+  color: #fff;
+  font-size: 32rpx;
+}
+
 .swiper-item-btn{
   margin: 180rpx 30rpx 0 30rpx;
   height: 75rpx;

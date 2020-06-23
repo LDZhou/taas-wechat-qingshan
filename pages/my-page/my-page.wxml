@@ -60,11 +60,6 @@
       </view>
     </view>
   </view> -->
-  <image
-    class="mine-bg"
-    src="/assets/my-page/mine-bg.png"
-    mode="widthFix"></image>
-  <view style="height:80rpx"></view>
 </block>
 <block wx:else>
   <view class="user-info-container shadow">
@@ -78,3 +73,10 @@
     </view>
   </view>
 </block>
+
+
+<image
+  class="mine-bg"
+  src="/assets/my-page/mine-bg.png"
+  mode="widthFix"></image>
+<view style="height:80rpx"></view>

@@ -214,6 +214,9 @@
   z-index: 10;
 }
 
+.header-date-wrap{
+}
+
 .header-time{
   font-size: 40rpx;
   font-weight: 600;
