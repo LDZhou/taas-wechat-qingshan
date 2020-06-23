@@ -104,8 +104,8 @@ App.Page({
       return
     }
     const params = {
-      url: `users/${userInfo.id}`,
-      method: 'PUT',
+      url: `users/review`,
+      method: 'POST',
       data: {
         user: {
           ...form

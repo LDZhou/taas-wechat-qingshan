@@ -22,7 +22,7 @@ App.Page({
     carouselPhotos: [
       {
         id: 0,
-        url: '/assets/solution/retrospect/bathtub.png',
+        url: '/assets/solution/retrospect/tree.png',
         des: '减少\n二氧化碳排放',
         headerNum: 0,
         unit: 'kg',
@@ -37,7 +37,7 @@ App.Page({
       {
         id: 1,
         url: '/assets/solution/retrospect/power.png',
-        des: '减少\能源消耗',
+        des: '减少\n能源消耗',
         headerNum: 0,
         unit: 'kwh',
         footer_1: '相当于一家三口',
@@ -50,8 +50,8 @@ App.Page({
       },
       {
         id: 2,
-        url: '/assets/solution/retrospect/tree.png',
-        des: '减少\填埋体积',
+        url: '/assets/solution/retrospect/bathtub.png',
+        des: '减少\n填埋体积',
         headerNum: 0,
         unit: 'm³',
         footer_1: '相当于',
