@@ -30,7 +30,7 @@
 
 .login-btn{
   height: 90rpx;
-  line-height: 90rpx;
+  /* line-height: 90rpx; */
   background: rgb(100,215,201);
   border-radius: 53rpx;
   color: #fff;
@@ -38,6 +38,9 @@
   padding: 0;
   font-weight: unset;
   margin-top: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-btn:not([size='mini']){
