@@ -13,7 +13,6 @@ App.Page({
   data: {
     lastProduct: {},
     chainDetail: {},
-    currentIndex: 0,
     scrollIndex: 0,
     indicatorIndex: 0,
     id: null,
@@ -265,8 +264,8 @@ App.Page({
   },
 
   posterSwiperChange: function ({ detail }) {
-    const { current: currentIndex } = detail
-    this.setData({ currentIndex })
+    const { current } = detail
+    this.setData({ indicatorIndex: current })
   },
 
   bindShowMask: function () {
