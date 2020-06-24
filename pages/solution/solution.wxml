@@ -1,5 +1,10 @@
 <!--pages/solution/solution.wxml-->
 
+<image
+  class="logo"
+  src="/assets/my-page/login-icon.png"
+  mode="widthFix"></image>
+
 <carousel
   photos="{{photos}}"
   showSwiperBtn="{{true}}"

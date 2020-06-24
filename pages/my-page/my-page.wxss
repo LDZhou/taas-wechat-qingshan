@@ -150,3 +150,9 @@
   margin-top: 226rpx;
   margin-left: 40rpx;
 }
+
+.footer-logo{
+  width: 342rpx;
+  display: block;
+  margin: 68rpx auto 0 auto;
+}

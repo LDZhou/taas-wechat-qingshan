@@ -79,4 +79,9 @@
   class="mine-bg"
   src="/assets/my-page/mine-bg.png"
   mode="widthFix"></image>
+
+<image
+  class="footer-logo"
+  src="/assets/my-page/login-icon.png"
+  mode="widthFix"></image>
 <view style="height:80rpx"></view>

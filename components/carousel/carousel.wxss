@@ -3,8 +3,6 @@
 .carousel-container{
   height: 1000rpx;
   position: relative;
-  margin-top: 98rpx;
-
 }
 
 .swiper-photos{
