@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "language-switcher": "/components/language/language"
+  },
   "navigationBarTitleText": "我的"
 }

@@ -1,6 +1,5 @@
 /* pages/home/suggest/suggest.wxss */
 
-
 .textarea-container{
   width: calc(100% - 60rpx);
   height: 456rpx;

@@ -1,18 +1,13 @@
 <!--pages/home/home.wxml-->
 
-<image
-  class="home-bg"
-  mode="widthFix"
-  src="/assets/home/home-bg-1.png"></image>
+<view class="home-container">
+  <language-switcher></language-switcher>
+</view>
 
-  <image
-  class="home-bg"
-  mode="widthFix"
-  src="/assets/home/home-bg-2.png"></image>
-
-  <image
-  class="home-bg contact-us-container"
-  mode="widthFix"
-  src="/assets/home/home-bg-3.png">
-    <view class="contact-us-btn" bindtap="bindSuggest">外卖餐盒再生 我有话说！</view>
-  </image>
+<image class="home-bg" mode="widthFix" src="{{images.bg1}}"></image>
+<image class="home-bg" mode="widthFix" src="{{images.bg2}}"></image>
+<image class="home-bg contact-us-container" mode="widthFix" src="{{images.bg3}}">
+  <view class="contact-us-btn" bindtap="bindSuggest">
+    <text>{{content.text5}}</text>
+  </view>
+</image>

@@ -111,10 +111,14 @@
 
 /* form */
 
+/* form */
+
 .row-container{
   height: 120rpx;
   display: flex;
   align-items: center;
+  /* 确保 row 容器不会溢出 */
+  overflow: hidden;
 }
 
 .row-container ~ .row-container{
@@ -122,16 +126,22 @@
 }
 
 .row-title{
-  flex-shrink: 0;
-  width: 64rpx;
+  /* 增加 width 或使用 min-width 可以容纳更长的文本 */
+  min-width: 150rpx; /* 根据你的内容调整这个宽度 */
   font-size: 28rpx;
+  /* 如果标题很长并且需要隐藏溢出文本，可以使用以下两行 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* 这将在文本溢出时显示省略号(...) */
 }
 
 .row-input{
   margin-left: 20rpx;
-  flex-grow: 1;
+  flex-grow: 1; /* 确保输入框占据剩余空间 */
   font-size: 28rpx;
   color: rgb(153,153,153);
+  /* 添加 padding 防止文本直接贴边显示 */
+  padding-right: 20rpx;
 }
 
 .picker{
@@ -143,6 +153,8 @@
   width: 14rpx;
   height: 24rpx;
   flex-shrink: 0;
+  /* 如果 icon 和文本重叠，可以尝试添加一些右边距 */
+  margin-left: 10rpx;
 }
 
 .mine-bg{

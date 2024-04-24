@@ -1,4 +1,5 @@
 {
   "usingComponents": {
+    "language-switcher": "/components/language/language"
   }
 }

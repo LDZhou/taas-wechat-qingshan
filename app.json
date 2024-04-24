@@ -1,4 +1,7 @@
 {
+  "usingComponents": {
+    "language-switcher": "/components/language/language"
+  },
   "pages": [
     "pages/home/home",
     "pages/home/suggest/suggest",

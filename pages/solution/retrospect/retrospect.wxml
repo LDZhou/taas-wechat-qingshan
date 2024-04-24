@@ -1,16 +1,21 @@
 <!--pages/solution/retrospect/retrospect.wxml-->
 
+<view class="home-container">
+  <language-switcher></language-switcher>
+</view>
+
 <view class="mask-container" wx:if="{{showMask}}" bindtap="bindHideMask" catchtouchmove="catchMaskMove">
  <!-- catchtap="catchShareTap" -->
   <view class="mask-wrap">
     <image class="share-image" src="{{chainDetail.share_photo ? chainDetail.share_photo.url : ''}}" mode="aspectFit"></image>
-    <view class="share-btn save-share-img-btn" catchtap="bindShare">保存图片</view>
+    <view class="share-btn save-share-img-btn" catchtap="bindShare">{{saveImageButtonText}}</view>
   </view>
 </view>
 
 <image class="show-img" wx:if="{{chainDetail.cover_photo}}" src="{{chainDetail.cover_photo.url}}" mode="widthFix"></image>
 
-<image class="environment-icon" src="/assets/solution/retrospect/environment.png" mode="aspectFit"></image>
+<!--pages/solution/retrospect/retrospect.wxml-->
+<image class="environment-icon" src="{{environmentIconSrc}}" mode="aspectFit"></image>
 
 <view
   class="carousel-container"
@@ -52,7 +57,8 @@
   </block>
 </view>
 
-<image class="environment-icon" src="/assets/solution/retrospect/process.png" mode="aspectFit"></image>
+<!--pages/solution/retrospect/retrospect.wxml-->
+<image class="environment-icon" src="{{processIconSrc}}" mode="aspectFit"></image>
 
 <view class="products-wrap">
   <view class="product-container {{scrollIndex === index ? 'product-active' : ''}}" wx:for="{{chainDetail.products}}" wx:key="id">
@@ -78,36 +84,37 @@
       </view>
     </view>
   </view>
-  <view class="output">再生档案</view>
-  <view class="product-container {{chainDetail.products && scrollIndex === chainDetail.products.length ? 'product-active' : ''}}">
-    <view class="product-header-container">
-      <image class="cover-photo" src="{{lastProduct.showBackgroundImg}}" mode="aspectFill" wx:if="{{lastProduct.showBackgroundImg}}"></image>
-      <view class="header-date-wrap" wx:if="{{chainDetail.products && scrollIndex === chainDetail.products.length}}">
-        <view class="header-time">{{lastProduct.manufactured_at}}</view>
-        <image class="time-bg" src="/assets/solution/retrospect/time-bg.png"></image>
-      </view>
+  </view>
+  <view class="output">{{archiveTitle}}</view>
+
+<view class="product-container {{chainDetail.products && scrollIndex === chainDetail.products.length ? 'product-active' : ''}}">
+  <view class="product-header-container">
+    <image class="cover-photo" src="{{lastProduct.showBackgroundImg}}" mode="aspectFill" wx:if="{{lastProduct.showBackgroundImg}}"></image>
+    <view class="header-date-wrap" wx:if="{{chainDetail.products && scrollIndex === chainDetail.products.length}}">
+      <view class="header-time">{{lastProduct.manufactured_at}}</view>
+      <image class="time-bg" src="/assets/solution/retrospect/time-bg.png"></image>
     </view>
-    <view class="record-container">
-      <view class="record-title">TA是谁</view>
-      <view class="record-des">{{lastProduct.name}}</view>
-      <view class="record-info">
-        <view class="record-row-wrap">
-          <view class="record-title">再生重量</view>
-          <view class="record-des">{{lastProduct.weight}}kg</view>
-        </view>
-        <view class="record-row-wrap">
-          <view class="record-title">再生数量</view>
-          <view class="record-des">{{lastProduct.quantity}}个</view>
-        </view>
-        <view class="record-row-wrap">
-          <view class="record-title">再生时间</view>
-          <view class="record-des">{{lastProduct.manufactured_at}}</view>
-        </view>
+  </view>
+  <view class="record-container">
+    <view class="record-title">{{whoIsTitle}}</view>
+    <view class="record-des">{{lastProduct.name}}</view>
+    <view class="record-info">
+      <view class="record-row-wrap">
+        <view class="record-title">{{weightTitle}}</view>
+        <view class="record-des">{{lastProduct.weight}}kg</view>
+      </view>
+      <view class="record-row-wrap">
+        <view class="record-title">{{quantityTitle}}</view>
+        <view class="record-des">{{lastProduct.quantity}}</view>
+      </view>
+      <view class="record-row-wrap">
+        <view class="record-title">{{timeTitle}}</view>
+        <view class="record-des">{{lastProduct.manufactured_at}}</view>
       </view>
     </view>
   </view>
 </view>
 
 <view class="footer-container">
-  <view class="share-btn" bindtap="bindShowMask">生成图片分享到朋友圈</view>
+  <view class="share-btn" bindtap="bindShowMask">{{shareText}}</view>
 </view>

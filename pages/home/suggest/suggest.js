@@ -9,14 +9,10 @@ App.Page({
   data: {
     rows: [
       {
-        title: '您的姓名',
-        placeholder: '请输入...',
         key: 'name',
         tag: 'input'
       },
       {
-        title: '您的邮箱',
-        placeholder: '请输入...',
         key: 'email',
         tag: 'input'
       },
@@ -34,10 +30,6 @@ App.Page({
       notes: ''
     },
     modelMessage: {
-      title: '提交成功！',
-      content: '我们近期会联系您，请保持手机通畅～',
-      confirmText: '确定',
-      iconPath: '/assets/component/success.png'
     },
   },
 
@@ -45,10 +37,32 @@ App.Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    app.setNavBarTitle();
+    const content = wx.getStorageSync('content'); // 直接从全局数据中获取内容
     this.model = this.selectComponent('#model')
     // this.model.show()
+    this.setData({
+      content: content,
+      modelMessage: {
+        title: content.text13,
+        content: content.text14,
+        confirmText: content.text15,
+        iconPath: '/assets/component/success.png'
+      }
+    })
+    // 更新 rows 数据
+    this.updateRows();
   },
+  updateRows: function() {
+    const content = this.data.content;
+    const updatedRows = this.data.rows.map(row => ({
+      ...row,
+      title: content[row.key + 'Title'] || content['text' + (row.key === 'name' ? '9' : '11')], // 通过 key 获取 title
+      placeholder: content[row.key + 'Placeholder'] || content['text' + (row.key === 'name' ? '10' : '12')] // 通过 key 获取 placeholder
+    }));
 
+    this.setData({ rows: updatedRows });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -60,7 +74,7 @@ App.Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    app.setNavBarTitle();
   },
 
   onShareAppMessage: function () {

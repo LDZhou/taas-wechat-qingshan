@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "carousel": "/components/carousel/carousel"
+    "carousel": "/components/carousel/carousel",
+    "language-switcher": "/components/language/language"
   },
   "navigationBarTitleText": "解决方案"
 }

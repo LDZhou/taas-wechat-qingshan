@@ -1,0 +1,8 @@
+<view class="image-container">
+  <image
+  src="{{languageSwitchIcon}}"
+  class="language-switch"
+  bindtap="changeLanguage"
+  mode="aspectFit">
+</image>
+</view>

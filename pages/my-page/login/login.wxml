@@ -1,11 +1,17 @@
 <!--pages/my-page/login/login.wxml-->
 
+<view class="home-container">
+  <!-- 其他内容 -->
+  <language-switcher></language-switcher>
+  <!-- 继续添加其他页面内容 -->
+</view>
+
 <view class="login-card">
   <image src="/assets/my-page/login-icon.png" class='login-icon' mode="widthFix"></image>
-  <view class="intro-content-title">欢迎使用{{$state.appInfo.name}}小程序</view>
-  <view class="intro-content-title">登陆后可查看更多产品信息</view>
+  <view class="intro-content-title"><text>{{content.text17}}</text></view>
+  <view class="intro-content-title"><text>{{content.text19}}</text></view>
   <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
     <!-- <image src="/assets/my-page/wechat.png" class='wechat-icon' ></image> -->
-    <text>登录</text>
+    <text>{{content.text20}}</text>
   </button>
 </view>

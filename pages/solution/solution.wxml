@@ -1,4 +1,7 @@
 <!--pages/solution/solution.wxml-->
+<view class="home-container">
+  <language-switcher></language-switcher>
+</view>
 
 <image
   class="logo"

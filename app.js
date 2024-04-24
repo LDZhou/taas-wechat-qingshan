@@ -51,6 +51,13 @@ let store = new Store({
   }
 })
 App({
+  onLoad: function (options) {
+    const content = wx.getStorageSync('content');
+    this.setData({
+      content: content,
+    })
+  },
+
   onLaunch: function () {
     let wxp = {}
     promisifyAll(wx, wxp)
@@ -104,5 +111,14 @@ App({
   globalData: {
     userInfoPromise: null
   },
+
+  setNavBarTitle: function() {
+    const language = wx.getStorageSync('language') || 'zh';
+    const title = language === 'en' ? 'Lush Mountain Initiative' : '青山计划';
+    wx.setNavigationBarTitle({
+      title: title
+    });
+  },
+
   store: store
 })

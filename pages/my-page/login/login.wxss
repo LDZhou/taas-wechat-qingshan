@@ -16,7 +16,7 @@
 }
 
 .intro-content-title{
-  font-size: 36rpx;
+  font-size: 30rpx;
   text-align: center;
   padding-bottom: 20rpx;
   /* padding: 0 54rpx; */

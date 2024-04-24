@@ -26,7 +26,8 @@
           class="swiper-item-btn"
           wx:if="{{showSwiperBtn}}"
           bindtap="swiperItemTap"
-        >立即查看</view>
+        ><text>{{content.text23}}</text>
+        </view>
       </swiper-item>
     </block>
   </swiper>

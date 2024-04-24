@@ -1,14 +1,12 @@
 // components/carousel/carousel.js
+const app = getApp();
 
-const app = getApp()
-App.Component({
+Component({
   options: {
     multipleSlots: true,
     addGlobalClass: true
   },
-  /**
-   * 组件的属性列表
-   */
+
   properties: {
     photos: {
       type: Array,
@@ -21,10 +19,6 @@ App.Component({
     showSwiperBtn: {
       type: Boolean,
       value: false
-    },
-    properties: {
-      type: Object,
-      value: {}
     },
     containerStyle: {
       type: String,
@@ -40,37 +34,48 @@ App.Component({
     },
   },
 
-  /**
-   * 组件的初始数据
-   */
   data: {
-    currentIndex: 0
+    currentIndex: 0,
+    content: {} // 存储本地化内容
   },
 
-  /**
-   * 组件的方法列表
-   */
-  methods: {
+  attached: function() {
+    this.loadContent();  // 调用方法从methods加载内容
+  },
 
-    posterSwiperChange: function ({ currentTarget, detail }) {
-      const { current } = detail
-      this.setData({ currentIndex: current })
+  methods: {
+    loadContent: function() {
+      const currentLanguage = this.getCurrentLanguage();
+      this.setData({
+        content: this.getContentByLanguage(currentLanguage)
+      });
     },
 
-    previewHistoryImage: function (e) {
-      const { currentIndex, photos, previewImage } = this.data
+    getCurrentLanguage: function() {
+      return wx.getStorageSync('language') || 'zh';  // 从本地存储获取当前语言设置
+    },
+
+    getContentByLanguage: function(language) {
+      // 根据语言获取内容，这里可以扩展更多语言
+      return language === 'en' ? { text23: 'View now' } : { text23: '立即查看' };
+    },
+
+    posterSwiperChange: function(e) {
+      this.setData({ currentIndex: e.detail.current });
+    },
+
+    previewHistoryImage: function(e) {
+      const { currentIndex, photos, previewImage } = this.data;
       if (previewImage) {
-        const currentUrl = photos[currentIndex].url || ''
         wx.previewImage({
-          current: currentUrl,
+          current: photos[currentIndex].url,
           urls: photos.map(item => item.url)
-        })
+        });
       }
     },
 
-    swiperItemTap: function () {
-      const { currentIndex } = this.data
-      this.triggerEvent('swiperItemTap', { currentIndex })
+    swiperItemTap: function() {
+      this.triggerEvent('swiperItemTap', { currentIndex: this.data.currentIndex });
     }
   }
-})
+});

@@ -14,7 +14,10 @@ App.Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const content = wx.getStorageSync('content');
+    this.setData({
+      content: content,
+    })
   },
 
   /**
@@ -28,8 +31,31 @@ App.Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getChains()
+    this.getChains();
+    this.setDynamicNavigationBarTitle();
   },
+
+  setDynamicNavigationBarTitle: function() {
+    const currentLanguage = this.getCurrentLanguage();
+    console.log('Setting title for language: ' + currentLanguage); // 确认这个日志已打印
+  
+    let title = '解决方案'; // 默认标题
+    if (currentLanguage === 'en') {
+      title = 'Solutions'; // 英文标题
+    }
+    // ...其他语言的处理...
+  
+    wx.setNavigationBarTitle({
+      title: title
+    });
+  },
+
+  getCurrentLanguage: function() {
+    const language = wx.getStorageSync('language') || 'zh';
+    console.log('Current language is: ' + language); // 这应该显示 'en' 或 'zh'
+    return language;
+  },
+  
 
   onShareAppMessage: function () {
     return this.shareApp()

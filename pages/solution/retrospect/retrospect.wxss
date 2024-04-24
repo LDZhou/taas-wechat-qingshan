@@ -232,11 +232,12 @@
   background: #fff;
   position: relative;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+ 
 }
 
 .content-container > text:first-child{
-  font-size: 42rpx;
+  font-size: 25rpx;
   width: 120rpx;
   flex-shrink: 0;
   font-weight: 600;
@@ -292,7 +293,7 @@
 }
 
 .record-title{
-  font-size: 27rpx;
+  font-size: 26rpx;
   font-weight: bold;
   position: relative;
 }

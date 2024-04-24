@@ -1,0 +1,7 @@
+.language-switch {
+  width: 150rpx; /* 根据图片和布局的需要调整宽度 */
+  height: 80rpx; /* 根据图片和布局的需要调整高度 */
+  position: absolute; /* 绝对定位 */
+  right: 16rpx; /* 距离右边的距离 */
+  top: 16rpx; /* 距离顶部的距离 */
+}

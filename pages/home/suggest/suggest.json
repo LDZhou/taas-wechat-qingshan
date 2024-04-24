@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "model": "/components/model/model"
+    "model": "/components/model/model",
+    "language-switcher": "/components/language/language"
   }
 }
